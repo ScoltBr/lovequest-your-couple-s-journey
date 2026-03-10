@@ -62,6 +62,28 @@ const Rewards = () => {
       description: `${confirmRedeem.name} está pendente de aprovação do parceiro.`,
     });
 
+    // Confetti celebration
+    const duration = 1500;
+    const end = Date.now() + duration;
+    const frame = () => {
+      confetti({
+        particleCount: 3,
+        angle: 60,
+        spread: 55,
+        origin: { x: 0, y: 0.6 },
+        colors: ["#FF4D6D", "#8B5CF6", "#F59E0B", "#22C55E", "#4F46E5"],
+      });
+      confetti({
+        particleCount: 3,
+        angle: 120,
+        spread: 55,
+        origin: { x: 1, y: 0.6 },
+        colors: ["#FF4D6D", "#8B5CF6", "#F59E0B", "#22C55E", "#4F46E5"],
+      });
+      if (Date.now() < end) requestAnimationFrame(frame);
+    };
+    frame();
+
     setTimeout(() => setJustRedeemed(null), 2000);
   };
 
