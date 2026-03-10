@@ -235,12 +235,15 @@ const Settings = () => {
         <div>
           <p className="text-xs text-muted-foreground font-body mb-2">Cor de destaque</p>
           <div className="flex gap-3">
-            {accentColors.map((c) => (
+            {ACCENT_COLORS.map((c) => (
               <button
                 key={c.name}
                 title={c.name}
-                className="w-8 h-8 rounded-full border-2 border-border hover:scale-110 transition-transform"
-                style={{ backgroundColor: `hsl(${c.hsl})` }}
+                onClick={() => setAccent(c.name)}
+                className={`w-8 h-8 rounded-full border-2 hover:scale-110 transition-transform ${
+                  accent === c.name ? "border-foreground scale-110 ring-2 ring-offset-2 ring-offset-background" : "border-border"
+                }`}
+                style={{ backgroundColor: `hsl(${c.primary})`, ...(accent === c.name ? { ringColor: `hsl(${c.primary})` } : {}) }}
               />
             ))}
           </div>
