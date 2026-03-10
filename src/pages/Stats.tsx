@@ -11,7 +11,7 @@ const generateActivityData = () => {
   const now = new Date();
 
   for (let w = weeks - 1; w >= 0; w--) {
-    const week: { level: number; date: string }[] = [];
+    const week: { level: number; date: string; missions: number }[] = [];
     for (let d = 0; d < days; d++) {
       const date = new Date(now);
       date.setDate(date.getDate() - w * 7 - (6 - d));
