@@ -121,6 +121,7 @@ const Profile = () => {
         {["Configurações", "Ajuda", "Termos de uso"].map((item, i) => (
           <button
             key={item}
+            onClick={item === "Configurações" ? () => navigate("/app/configuracoes") : undefined}
             className={`w-full flex items-center justify-between px-4 py-3.5 text-sm font-body text-foreground hover:bg-accent transition-colors ${
               i !== 2 ? "border-b border-border" : ""
             }`}
