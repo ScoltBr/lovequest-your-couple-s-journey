@@ -1,143 +1,153 @@
 # ❤️ LoveQuest — Your Couple’s Journey
 
-LoveQuest é uma aplicação interativa que transforma o relacionamento de um casal em uma jornada gamificada de desafios, recompensas e experiências compartilhadas.
+![GitHub repo size](https://img.shields.io/github/repo-size/ScoltBr/lovequest-your-couple-s-journey)
+![GitHub stars](https://img.shields.io/github/stars/ScoltBr/lovequest-your-couple-s-journey?style=social)
+![GitHub forks](https://img.shields.io/github/forks/ScoltBr/lovequest-your-couple-s-journey?style=social)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Python](https://img.shields.io/badge/backend-Python-blue)
+![FastAPI](https://img.shields.io/badge/framework-FastAPI-009688)
+![React](https://img.shields.io/badge/frontend-React-61DAFB)
 
-A plataforma combina **gamificação, personalização com IA e uma arquitetura backend modular** para gerar experiências românticas personalizadas para cada casal.
+LoveQuest é uma aplicação que transforma o relacionamento de um casal em uma **jornada gamificada**, utilizando desafios, recompensas e experiências personalizadas.
 
-O objetivo do projeto é demonstrar como **um backend inteligente pode orquestrar experiências emocionais e interativas**, utilizando geração de conteúdo dinâmico e lógica de progressão.
+O projeto demonstra como um **backend inteligente pode gerar experiências emocionais dinâmicas**, utilizando lógica de progressão, geração de conteúdo e personalização com IA.
 
 ---
 
-# ✨ Visão Geral
+# ✨ Preview
 
-LoveQuest funciona como um **motor de geração de experiências para casais**, onde:
+### Interface da aplicação
 
-- desafios românticos são gerados dinamicamente
-- o progresso do relacionamento é representado por missões
-- recompensas podem ser desbloqueadas
-- a experiência é personalizada com IA
+![Preview App](docs/images/app-preview.gif)
 
-O backend atua como o **núcleo lógico do sistema**, responsável por gerar conteúdo, validar progresso e gerenciar a progressão da jornada do casal.
+### Fluxo da jornada
+
+![Flow](docs/images/journey-flow.png)
+
+*(Substitua essas imagens pelos seus screenshots ou GIFs do projeto.)*
 
 ---
 
 # 🎯 Objetivo do Projeto
 
-Este projeto foi desenvolvido para demonstrar:
+LoveQuest foi criado para demonstrar conceitos importantes de engenharia de software:
 
-- Arquitetura backend modular
-- Integração com IA para geração de conteúdo
-- Design de sistemas gamificados
+- Backend modular
+- Geração dinâmica de conteúdo
 - APIs para aplicações interativas
-- Estrutura escalável para aplicações sociais
+- Gamificação de experiências humanas
+- Integração com IA
 
-Além disso, o projeto explora como **tecnologia pode ser utilizada para fortalecer relações humanas através de experiências digitais personalizadas**.
+O projeto explora como **tecnologia pode incentivar momentos positivos entre pessoas**.
+
+---
+
+# 🧠 Conceito
+
+A aplicação transforma interações entre um casal em **quests (missões)**.
+
+Cada missão representa uma atividade real que fortalece o relacionamento.
+
+Exemplos:
+
+- preparar um jantar juntos
+- escrever uma carta romântica
+- planejar um encontro surpresa
+- assistir um filme escolhido pelo parceiro
+
+Ao completar quests, os usuários recebem **recompensas e progresso na jornada**.
 
 ---
 
 # 🏗️ Arquitetura do Sistema
 
-O projeto é dividido em duas camadas principais.
+O sistema segue uma arquitetura separada entre **frontend e backend**.
 
-## Frontend
-
-Responsável pela interface do usuário.
-
-### Tecnologias
-
-- React
-- TypeScript
-- TailwindCSS
-- Framer Motion
-- Zustand (gerenciamento de estado)
-
-### Responsabilidades
-
-- exibir quests
-- mostrar progresso do casal
-- apresentar recompensas
-- gerenciar a interação do usuário
+```
+Frontend (React)
+        │
+        │ REST API
+        ▼
+Backend (FastAPI)
+        │
+        │ Quest Engine
+        │ Personalization Engine
+        ▼
+Experience Generation
+```
 
 ---
 
-## Backend (Core do Projeto)
+# ⚙️ Backend — Core do Projeto
 
-O backend é o **coração da aplicação**, responsável por toda a lógica do sistema.
+O backend é responsável por **toda a inteligência do sistema**.
+
+Ele funciona como um **motor de experiências**, gerando desafios, controlando progresso e personalizando interações.
 
 ### Tecnologias
 
 - Python
 - FastAPI
+- Motor de geração de quests
+- Integração com IA (LLMs)
 
 ### Responsabilidades
 
-- geração dinâmica de quests
-- personalização da experiência
-- gerenciamento de progressão
-- controle de recompensas
-- integração com modelos de IA
-- fornecimento de API para o frontend
-
-O backend funciona como um **motor de experiência gamificada**, permitindo que o frontend consuma missões geradas dinamicamente.
+- geração de quests
+- personalização de conteúdo
+- controle de progresso
+- sistema de recompensas
+- API para consumo do frontend
 
 ---
 
-# ⚙️ Componentes do Backend
+# 🧩 Componentes do Backend
 
-## 1️⃣ Quest Generation Engine
+## Quest Generation Engine
 
-O sistema de geração de quests cria desafios românticos baseados em contexto.
+Responsável por gerar desafios românticos.
 
-Ele pode considerar fatores como:
-
-- histórico de quests completadas
-- estágio do relacionamento
-- preferências do casal
-- frequência de interação
-
-### Exemplo de quest
+Exemplo:
 
 ```
-Prepare um jantar surpresa para seu parceiro(a).
+Quest:
+Prepare um jantar surpresa para seu parceiro(a)
 ```
 
 Outro exemplo:
 
 ```
-Escreva uma carta contando três coisas que você ama na pessoa.
+Quest:
+Escreva três coisas que você admira na pessoa.
 ```
 
-Esse sistema permite **geração praticamente infinita de conteúdo**, mantendo a experiência sempre nova.
+O sistema permite **geração praticamente infinita de conteúdo**.
 
 ---
 
-## 2️⃣ Personalization Engine
+## Personalization Engine
 
-O backend possui um motor de personalização que pode integrar com modelos de IA.
+Sistema que adapta a experiência ao casal.
 
-### Objetivos
+Possibilidades:
 
-- adaptar quests ao estilo do casal
-- gerar mensagens românticas personalizadas
-- criar experiências únicas
+- geração de mensagens personalizadas
+- adaptação do tipo de desafio
+- recomendações de atividades
 
-### Possíveis integrações
+Integrações possíveis:
 
 - OpenAI
 - Gemini
 - LLMs locais
 
-Isso permite que cada casal tenha **uma jornada única e personalizada**.
-
 ---
 
-## 3️⃣ Relationship Progression System
+## Relationship Progression System
 
-O sistema de progressão funciona como um **RPG de relacionamento**.
+A progressão funciona como um **RPG de relacionamento**.
 
-Usuários completam quests e recebem recompensas.
-
-### Fluxo de progressão
+Fluxo:
 
 ```
 Completar missão
@@ -149,46 +159,44 @@ Desbloquear recompensa
 Avançar na jornada
 ```
 
-Esse sistema cria **engajamento contínuo e incentivo para novas interações**.
+Esse sistema incentiva interação constante.
 
 ---
 
-## 4️⃣ Reward System
+## Reward System
 
-O sistema de recompensas incentiva a participação nas quests.
+Recompensas incentivam a participação nas quests.
 
-### Exemplos de recompensas
+Exemplos:
 
 - escolher o próximo filme
-- escolher o restaurante do próximo encontro
-- ganhar um jantar especial
-- planejar uma atividade surpresa
+- escolher o restaurante
+- planejar um encontro
+- ganhar uma surpresa romântica
 
 ---
 
-# 📡 API Backend
+# 📡 API
 
-O backend fornece endpoints que permitem ao frontend acessar o sistema de quests.
+O backend expõe endpoints para o frontend.
 
-### Exemplo de endpoints
+### Buscar quests
 
 ```
 GET /quests
 ```
 
-Retorna as quests disponíveis.
+### Completar quest
 
 ```
 POST /quests/complete
 ```
 
-Marca uma quest como concluída.
+### Listar recompensas
 
 ```
 GET /rewards
 ```
-
-Retorna recompensas disponíveis.
 
 ---
 
@@ -207,30 +215,33 @@ lovequest/
 │
 ├── kat_engine/
 │   ├── api_server.py
-│   └── final_complete_kat_engine.py
+│   └── quest_engine.py
+│
+├── docs/
+│   └── images/
 │
 └── README.md
 ```
 
 ---
 
-# 🚀 Como Executar o Projeto
+# 🚀 Como Executar
 
 ## Backend
 
-Instale as dependências:
+Instalar dependências
 
-```bash
+```
 pip install fastapi uvicorn
 ```
 
-Execute o servidor:
+Rodar servidor
 
-```bash
+```
 uvicorn api_server:app --reload
 ```
 
-O servidor estará disponível em:
+Servidor disponível em:
 
 ```
 http://localhost:8000
@@ -240,27 +251,27 @@ http://localhost:8000
 
 ## Frontend
 
-Instale as dependências:
+Instalar dependências
 
-```bash
+```
 npm install
 ```
 
-Execute o projeto:
+Executar aplicação
 
-```bash
+```
 npm run dev
 ```
 
 ---
 
-# 🧪 Possíveis Melhorias Futuras
+# 🧪 Melhorias Futuras
 
-Algumas melhorias planejadas incluem:
+Planejamentos para evolução do projeto:
 
 - autenticação de usuários
 - suporte para múltiplos casais
-- banco de dados (Supabase / PostgreSQL)
+- banco de dados (PostgreSQL / Supabase)
 - notificações push
 - geração de quests com IA
 - sistema de memórias do casal
@@ -268,35 +279,57 @@ Algumas melhorias planejadas incluem:
 
 ---
 
-# 💡 Ideia do Projeto
+# 💡 Categoria do Projeto
 
-LoveQuest explora um conceito emergente chamado **Relationship Tech**, onde tecnologia é usada para melhorar relações humanas.
+LoveQuest se encaixa em uma área emergente chamada:
 
-A ideia é criar uma experiência digital que incentive:
+**Relationship Technology**
+
+Apps dessa categoria usam tecnologia para incentivar:
 
 - comunicação
-- carinho
-- momentos especiais
-- crescimento do relacionamento
+- conexão emocional
+- experiências compartilhadas
+
+---
+
+# 🤝 Contribuindo
+
+Contribuições são bem-vindas.
+
+Passos:
+
+1. Fork do projeto
+2. Crie uma branch
+
+```
+git checkout -b feature/minha-feature
+```
+
+3. Commit das mudanças
+
+```
+git commit -m "nova feature"
+```
+
+4. Push
+
+```
+git push origin feature/minha-feature
+```
+
+5. Abra um Pull Request
 
 ---
 
 # 📜 Licença
 
-Este projeto é open-source e pode ser utilizado para fins educacionais e experimentais.
+Este projeto está sob licença MIT.
 
 ---
 
-# ❤️ Contribuições
+# ❤️ Autor
 
-Contribuições são bem-vindas!
+Desenvolvido por **ScoltBr**
 
-Se você quiser melhorar o projeto:
-
-- abra uma issue
-- sugira melhorias
-- envie um pull request
-
----
-
-**LoveQuest — transformando relacionamentos em jornadas inesquecíveis.**
+Se gostou do projeto, considere dar uma ⭐ no repositório.
