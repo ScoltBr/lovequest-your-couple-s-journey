@@ -65,9 +65,19 @@ const ActivityGrid = () => {
               {week.map((day, di) => (
                 <div
                   key={di}
-                  title={`${day.date} — Nível ${day.level}`}
-                  className={`w-[14px] h-[14px] rounded-[3px] ${levelColors[day.level]} transition-colors`}
-                />
+                  className="relative group"
+                >
+                  <div
+                    className={`w-[14px] h-[14px] rounded-[3px] ${levelColors[day.level]} transition-colors cursor-pointer`}
+                  />
+                  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 hidden group-hover:block z-50 pointer-events-none">
+                    <div className="bg-foreground text-background text-[10px] font-body rounded-lg px-2.5 py-1.5 whitespace-nowrap shadow-lg">
+                      <p className="font-bold">{day.date}</p>
+                      <p>{day.missions} {day.missions === 1 ? "missão" : "missões"}</p>
+                    </div>
+                    <div className="w-2 h-2 bg-foreground rotate-45 mx-auto -mt-1" />
+                  </div>
+                </div>
               ))}
             </div>
           ))}
