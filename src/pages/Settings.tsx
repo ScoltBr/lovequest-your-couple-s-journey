@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTheme } from "@/hooks/use-theme";
 import { useNavigate } from "react-router-dom";
 import { currentUser, partner } from "@/data/mockData";
 import {
@@ -71,7 +72,7 @@ const Settings = () => {
   const [rewardHistory, setRewardHistory] = useState(true);
 
   /* appearance */
-  const [theme, setTheme] = useState<"light" | "dark" | "auto">("light");
+  const { theme, setTheme } = useTheme();
   const themeOptions: { value: typeof theme; label: string; icon: React.ElementType }[] = [
     { value: "light", label: "Claro", icon: Sun },
     { value: "dark", label: "Escuro", icon: Moon },
