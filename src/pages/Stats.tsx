@@ -56,39 +56,8 @@ const Stats = () => {
         </div>
       </div>
 
-      {/* Weekly activity chart */}
-      <div className="bg-card border border-border rounded-2xl p-4">
-        <h2 className="font-display font-bold text-foreground text-sm mb-3">Atividade da Semana</h2>
-        <div className="flex items-center gap-4 mb-3 text-xs font-body">
-          <span className="flex items-center gap-1">
-            <span className="w-3 h-3 rounded bg-primary" /> Você
-          </span>
-          <span className="flex items-center gap-1">
-            <span className="w-3 h-3 rounded bg-love" /> {partner.name}
-          </span>
-        </div>
-        <ResponsiveContainer width="100%" height={160}>
-          <BarChart data={weeklyActivity} barGap={2}>
-            <XAxis
-              dataKey="day"
-              axisLine={false}
-              tickLine={false}
-              tick={{ fontSize: 11, fill: "hsl(220, 9%, 46%)" }}
-            />
-            <Tooltip
-              contentStyle={{
-                background: "hsl(0, 0%, 100%)",
-                border: "1px solid hsl(216, 12%, 91%)",
-                borderRadius: "12px",
-                fontSize: "12px",
-                fontFamily: "Inter",
-              }}
-            />
-            <Bar dataKey="you" name="Você" fill="hsl(347, 100%, 65%)" radius={[6, 6, 0, 0]} />
-            <Bar dataKey="partner" name={partner.name} fill="hsl(352, 100%, 71%)" radius={[6, 6, 0, 0]} opacity={0.5} />
-          </BarChart>
-        </ResponsiveContainer>
-      </div>
+      {/* GitHub-style activity grid */}
+      <ActivityGrid />
 
       {/* Partner comparison (collaborative, not competitive) */}
       <div className="bg-card border border-border rounded-2xl p-4">
