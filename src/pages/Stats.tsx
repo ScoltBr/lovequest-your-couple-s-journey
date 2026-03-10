@@ -25,8 +25,10 @@ const generateActivityData = () => {
         : rand < 0.5 + weight * 0.2 ? 2
         : rand < 0.75 + weight * 0.1 ? 3
         : 4;
+      const missions = level === 0 ? 0 : level === 1 ? 1 : level === 2 ? 2 : level === 3 ? 3 : 5;
       week.push({
         level,
+        missions,
         date: date.toLocaleDateString("pt-BR", { day: "2-digit", month: "2-digit" }),
       });
     }
