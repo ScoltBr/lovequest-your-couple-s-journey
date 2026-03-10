@@ -312,7 +312,7 @@ const Rewards = () => {
               exit={{ y: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-card rounded-t-3xl w-full max-w-lg p-6 space-y-4"
+              className="bg-card rounded-3xl w-full max-w-sm p-6 space-y-4"
             >
               <div className="flex items-center justify-between">
                 <h2 className="font-display font-bold text-lg text-foreground">Nova Recompensa</h2>
