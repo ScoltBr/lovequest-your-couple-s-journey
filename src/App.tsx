@@ -9,6 +9,7 @@ import Missions from "./pages/Missions";
 import Rewards from "./pages/Rewards";
 import Stats from "./pages/Stats";
 import Profile from "./pages/Profile";
+import Settings from "./pages/Settings";
 import AppLayout from "./components/AppLayout";
 import NotFound from "./pages/NotFound";
 
