@@ -7,11 +7,11 @@ const generateActivityData = () => {
   const weeks = 12;
   const days = 7;
   const dayLabels = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"];
-  const data: { level: number; date: string }[][] = [];
+  const data: { level: number; date: string; missions: number }[][] = [];
   const now = new Date();
 
   for (let w = weeks - 1; w >= 0; w--) {
-    const week: { level: number; date: string }[] = [];
+    const week: { level: number; date: string; missions: number }[] = [];
     for (let d = 0; d < days; d++) {
       const date = new Date(now);
       date.setDate(date.getDate() - w * 7 - (6 - d));
@@ -25,8 +25,10 @@ const generateActivityData = () => {
         : rand < 0.5 + weight * 0.2 ? 2
         : rand < 0.75 + weight * 0.1 ? 3
         : 4;
+      const missions = level === 0 ? 0 : level === 1 ? 1 : level === 2 ? 2 : level === 3 ? 3 : 5;
       week.push({
         level,
+        missions,
         date: date.toLocaleDateString("pt-BR", { day: "2-digit", month: "2-digit" }),
       });
     }
@@ -63,9 +65,19 @@ const ActivityGrid = () => {
               {week.map((day, di) => (
                 <div
                   key={di}
-                  title={`${day.date} — Nível ${day.level}`}
-                  className={`w-[14px] h-[14px] rounded-[3px] ${levelColors[day.level]} transition-colors`}
-                />
+                  className="relative group"
+                >
+                  <div
+                    className={`w-[14px] h-[14px] rounded-[3px] ${levelColors[day.level]} transition-colors cursor-pointer`}
+                  />
+                  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 hidden group-hover:block z-50 pointer-events-none">
+                    <div className="bg-foreground text-background text-[10px] font-body rounded-lg px-2.5 py-1.5 whitespace-nowrap shadow-lg">
+                      <p className="font-bold">{day.date}</p>
+                      <p>{day.missions} {day.missions === 1 ? "missão" : "missões"}</p>
+                    </div>
+                    <div className="w-2 h-2 bg-foreground rotate-45 mx-auto -mt-1" />
+                  </div>
+                </div>
               ))}
             </div>
           ))}
