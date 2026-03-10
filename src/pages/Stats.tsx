@@ -1,7 +1,86 @@
-import { useMemo } from "react";
 import { currentUser, partner, weeklyGoal, achievements } from "@/data/mockData";
 import { Trophy, Flame, Target, Sparkles, TrendingUp } from "lucide-react";
 import ProgressRing from "@/components/ProgressRing";
+
+// Generate 12 weeks of mock activity data
+const generateActivityData = () => {
+  const weeks = 12;
+  const days = 7;
+  const dayLabels = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"];
+  const data: { level: number; date: string }[][] = [];
+  const now = new Date();
+
+  for (let w = weeks - 1; w >= 0; w--) {
+    const week: { level: number; date: string }[] = [];
+    for (let d = 0; d < days; d++) {
+      const date = new Date(now);
+      date.setDate(date.getDate() - w * 7 - (6 - d));
+      const isFuture = date > now;
+      const weight = 1 - w / weeks;
+      const rand = Math.random();
+      const level = isFuture
+        ? 0
+        : rand < 0.15 ? 0
+        : rand < 0.3 ? 1
+        : rand < 0.5 + weight * 0.2 ? 2
+        : rand < 0.75 + weight * 0.1 ? 3
+        : 4;
+      week.push({
+        level,
+        date: date.toLocaleDateString("pt-BR", { day: "2-digit", month: "2-digit" }),
+      });
+    }
+    data.push(week);
+  }
+  return { data, dayLabels };
+};
+
+const levelColors = [
+  "bg-muted",
+  "bg-primary/20",
+  "bg-primary/40",
+  "bg-primary/70",
+  "bg-primary",
+];
+
+const { data: activityData, dayLabels } = generateActivityData();
+
+const ActivityGrid = () => {
+  return (
+    <div className="bg-card border border-border rounded-2xl p-4">
+      <h2 className="font-display font-bold text-foreground text-sm mb-3">Atividade da Semana</h2>
+      <div className="overflow-x-auto">
+        <div className="flex gap-1">
+          <div className="flex flex-col gap-1 mr-1">
+            {dayLabels.map((d, i) => (
+              <span key={i} className="text-[10px] text-muted-foreground font-body h-[14px] flex items-center">
+                {i % 2 === 0 ? d : ""}
+              </span>
+            ))}
+          </div>
+          {activityData.map((week, wi) => (
+            <div key={wi} className="flex flex-col gap-1">
+              {week.map((day, di) => (
+                <div
+                  key={di}
+                  title={`${day.date} — Nível ${day.level}`}
+                  className={`w-[14px] h-[14px] rounded-[3px] ${levelColors[day.level]} transition-colors`}
+                />
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="flex items-center gap-1 mt-3 justify-end">
+        <span className="text-[10px] text-muted-foreground font-body mr-1">Menos</span>
+        {levelColors.map((c, i) => (
+          <div key={i} className={`w-[12px] h-[12px] rounded-[2px] ${c}`} />
+        ))}
+        <span className="text-[10px] text-muted-foreground font-body ml-1">Mais</span>
+      </div>
+    </div>
+  );
+};
 
 const statCards = [
   { label: "XP Total", value: `${currentUser.xp}`, icon: Sparkles, color: "bg-xp/10 text-xp" },
@@ -59,7 +138,7 @@ const Stats = () => {
       {/* GitHub-style activity grid */}
       <ActivityGrid />
 
-      {/* Partner comparison (collaborative, not competitive) */}
+      {/* Partner comparison */}
       <div className="bg-card border border-border rounded-2xl p-4">
         <h2 className="font-display font-bold text-foreground text-sm mb-3">Vocês Juntos</h2>
         <div className="grid grid-cols-2 gap-4">
