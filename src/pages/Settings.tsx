@@ -72,19 +72,11 @@ const Settings = () => {
   const [rewardHistory, setRewardHistory] = useState(true);
 
   /* appearance */
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme, accent, setAccent } = useTheme();
   const themeOptions: { value: typeof theme; label: string; icon: React.ElementType }[] = [
     { value: "light", label: "Claro", icon: Sun },
     { value: "dark", label: "Escuro", icon: Moon },
     { value: "auto", label: "Automático", icon: Monitor },
-  ];
-
-  const accentColors = [
-    { name: "Rosa", hsl: "347 100% 65%" },
-    { name: "Roxo", hsl: "244 76% 58%" },
-    { name: "Laranja", hsl: "25 95% 53%" },
-    { name: "Verde", hsl: "142 71% 45%" },
-    { name: "Azul", hsl: "217 91% 60%" },
   ];
 
   /* delete modal */
