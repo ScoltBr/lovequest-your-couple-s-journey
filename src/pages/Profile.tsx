@@ -1,6 +1,7 @@
 import { currentUser, partner, relationshipLevel, achievements } from "@/data/mockData";
 import { Heart, LogOut, Crown, Settings, Copy, Share2, Flame, Sparkles, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
   return (
