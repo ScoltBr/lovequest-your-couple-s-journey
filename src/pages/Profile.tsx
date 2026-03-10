@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
+  const navigate = useNavigate();
   return (
     <div className="px-4 pt-6 space-y-4 pb-4">
       <h1 className="text-2xl font-extrabold text-foreground">Perfil</h1>
