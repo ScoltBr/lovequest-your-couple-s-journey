@@ -131,7 +131,7 @@ export const weeklyActivity = [
 ];
 
 export const notifications = [
-  { id: "n1", message: "Ana completou 2 missões hoje.", time: "há 1h", read: false },
+  { id: "n1", message: "Alice completou 2 missões hoje.", time: "há 1h", read: false },
   { id: "n2", message: "Seu parceiro aprovou sua recompensa ❤️", time: "há 3h", read: false },
   { id: "n3", message: "🔥 7 dias de sequência! +25 XP bônus", time: "ontem", read: true },
   { id: "n4", message: "Meta semanal: 11/15 missões concluídas", time: "ontem", read: true },
