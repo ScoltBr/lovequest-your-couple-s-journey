@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useTheme } from "@/hooks/use-theme";
+import { useTheme, ACCENT_COLORS } from "@/hooks/use-theme";
 import { useNavigate } from "react-router-dom";
 import { currentUser, partner } from "@/data/mockData";
 import {
