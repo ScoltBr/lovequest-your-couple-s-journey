@@ -89,9 +89,9 @@ export interface Redemption {
 
 export const redemptionHistory: Redemption[] = [
   { id: "rd1", rewardName: "Massagem", redeemedBy: "Luiz", xpCost: 80, status: "pending", date: "2026-03-10", emoji: "💆" },
-  { id: "rd2", rewardName: "Pizza Night", redeemedBy: "Ana", xpCost: 120, status: "approved", date: "2026-03-08", emoji: "🍕" },
+  { id: "rd2", rewardName: "Pizza Night", redeemedBy: "Alice", xpCost: 120, status: "approved", date: "2026-03-08", emoji: "🍕" },
   { id: "rd3", rewardName: "Escolher filme", redeemedBy: "Luiz", xpCost: 50, status: "completed", date: "2026-03-05", emoji: "🎬" },
-  { id: "rd4", rewardName: "Café na cama", redeemedBy: "Ana", xpCost: 60, status: "rejected", date: "2026-03-02", emoji: "☕" },
+  { id: "rd4", rewardName: "Café na cama", redeemedBy: "Alice", xpCost: 60, status: "rejected", date: "2026-03-02", emoji: "☕" },
 ];
 
 export interface Achievement {
