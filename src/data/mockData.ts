@@ -12,7 +12,7 @@ export const currentUser = {
 
 export const partner = {
   id: "u2",
-  name: "Ana",
+  name: "Alice",
   avatar: "A",
   xp: 720,
   level: 4,

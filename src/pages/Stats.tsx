@@ -7,7 +7,7 @@ const generateActivityData = () => {
   const weeks = 12;
   const days = 7;
   const dayLabels = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"];
-  const data: { level: number; date: string }[][] = [];
+  const data: { level: number; date: string; missions: number }[][] = [];
   const now = new Date();
 
   for (let w = weeks - 1; w >= 0; w--) {
