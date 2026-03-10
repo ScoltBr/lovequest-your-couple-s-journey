@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useTheme } from "@/hooks/use-theme";
+import { useTheme, ACCENT_COLORS } from "@/hooks/use-theme";
 import { useNavigate } from "react-router-dom";
 import { currentUser, partner } from "@/data/mockData";
 import {
@@ -72,19 +72,11 @@ const Settings = () => {
   const [rewardHistory, setRewardHistory] = useState(true);
 
   /* appearance */
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme, accent, setAccent } = useTheme();
   const themeOptions: { value: typeof theme; label: string; icon: React.ElementType }[] = [
     { value: "light", label: "Claro", icon: Sun },
     { value: "dark", label: "Escuro", icon: Moon },
     { value: "auto", label: "Automático", icon: Monitor },
-  ];
-
-  const accentColors = [
-    { name: "Rosa", hsl: "347 100% 65%" },
-    { name: "Roxo", hsl: "244 76% 58%" },
-    { name: "Laranja", hsl: "25 95% 53%" },
-    { name: "Verde", hsl: "142 71% 45%" },
-    { name: "Azul", hsl: "217 91% 60%" },
   ];
 
   /* delete modal */
@@ -243,12 +235,15 @@ const Settings = () => {
         <div>
           <p className="text-xs text-muted-foreground font-body mb-2">Cor de destaque</p>
           <div className="flex gap-3">
-            {accentColors.map((c) => (
+            {ACCENT_COLORS.map((c) => (
               <button
                 key={c.name}
                 title={c.name}
-                className="w-8 h-8 rounded-full border-2 border-border hover:scale-110 transition-transform"
-                style={{ backgroundColor: `hsl(${c.hsl})` }}
+                onClick={() => setAccent(c.name)}
+                className={`w-8 h-8 rounded-full border-2 hover:scale-110 transition-transform ${
+                  accent === c.name ? "border-foreground scale-110 ring-2 ring-offset-2 ring-offset-background" : "border-border"
+                }`}
+                style={{ backgroundColor: `hsl(${c.primary})`, ...(accent === c.name ? { ringColor: `hsl(${c.primary})` } : {}) }}
               />
             ))}
           </div>
