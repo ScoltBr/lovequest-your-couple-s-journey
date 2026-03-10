@@ -303,7 +303,7 @@ const Rewards = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-foreground/40 flex items-end justify-center"
+            className="fixed inset-0 z-50 bg-foreground/40 flex items-center justify-center px-6"
             onClick={() => setShowCreate(false)}
           >
             <motion.div
@@ -312,7 +312,7 @@ const Rewards = () => {
               exit={{ y: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-card rounded-t-3xl w-full max-w-lg p-6 space-y-4"
+              className="bg-card rounded-3xl w-full max-w-sm p-6 space-y-4"
             >
               <div className="flex items-center justify-between">
                 <h2 className="font-display font-bold text-lg text-foreground">Nova Recompensa</h2>
