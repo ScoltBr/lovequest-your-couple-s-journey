@@ -1,8 +1,10 @@
 import { currentUser, partner, relationshipLevel, achievements } from "@/data/mockData";
 import { Heart, LogOut, Crown, Settings, Copy, Share2, Flame, Sparkles, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
+  const navigate = useNavigate();
   return (
     <div className="px-4 pt-6 space-y-4 pb-4">
       <h1 className="text-2xl font-extrabold text-foreground">Perfil</h1>
@@ -119,6 +121,7 @@ const Profile = () => {
         {["Configurações", "Ajuda", "Termos de uso"].map((item, i) => (
           <button
             key={item}
+            onClick={item === "Configurações" ? () => navigate("/app/configuracoes") : undefined}
             className={`w-full flex items-center justify-between px-4 py-3.5 text-sm font-body text-foreground hover:bg-accent transition-colors ${
               i !== 2 ? "border-b border-border" : ""
             }`}
