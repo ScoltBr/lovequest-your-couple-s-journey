@@ -4,6 +4,7 @@ import { Gift, Plus, X, Check, XIcon, Clock, CheckCircle2, Sparkles } from "luci
 import { rewardsCatalog as initialCatalog, redemptionHistory as initialHistory, currentUser, type RedemptionStatus, type Reward, type Redemption } from "@/data/mockData";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
+import confetti from "canvas-confetti";
 
 const statusConfig: Record<RedemptionStatus, { label: string; color: string; icon: typeof Clock }> = {
   pending: { label: "Pendente", color: "bg-warning/10 text-warning", icon: Clock },
@@ -60,6 +61,28 @@ const Rewards = () => {
     toast.success("Recompensa resgatada! 🎉", {
       description: `${confirmRedeem.name} está pendente de aprovação do parceiro.`,
     });
+
+    // Confetti celebration
+    const duration = 1500;
+    const end = Date.now() + duration;
+    const frame = () => {
+      confetti({
+        particleCount: 3,
+        angle: 60,
+        spread: 55,
+        origin: { x: 0, y: 0.6 },
+        colors: ["#FF4D6D", "#8B5CF6", "#F59E0B", "#22C55E", "#4F46E5"],
+      });
+      confetti({
+        particleCount: 3,
+        angle: 120,
+        spread: 55,
+        origin: { x: 1, y: 0.6 },
+        colors: ["#FF4D6D", "#8B5CF6", "#F59E0B", "#22C55E", "#4F46E5"],
+      });
+      if (Date.now() < end) requestAnimationFrame(frame);
+    };
+    frame();
 
     setTimeout(() => setJustRedeemed(null), 2000);
   };
