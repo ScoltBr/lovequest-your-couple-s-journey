@@ -4,6 +4,7 @@ import { Gift, Plus, X, Check, XIcon, Clock, CheckCircle2, Sparkles } from "luci
 import { rewardsCatalog as initialCatalog, redemptionHistory as initialHistory, currentUser, type RedemptionStatus, type Reward, type Redemption } from "@/data/mockData";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
+import confetti from "canvas-confetti";
 
 const statusConfig: Record<RedemptionStatus, { label: string; color: string; icon: typeof Clock }> = {
   pending: { label: "Pendente", color: "bg-warning/10 text-warning", icon: Clock },
