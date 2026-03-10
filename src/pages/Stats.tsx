@@ -1,5 +1,5 @@
-import { currentUser, partner, weeklyGoal, weeklyActivity, achievements } from "@/data/mockData";
-import { BarChart, Bar, XAxis, ResponsiveContainer, Tooltip } from "recharts";
+import { useMemo } from "react";
+import { currentUser, partner, weeklyGoal, achievements } from "@/data/mockData";
 import { Trophy, Flame, Target, Sparkles, TrendingUp } from "lucide-react";
 import ProgressRing from "@/components/ProgressRing";
 
